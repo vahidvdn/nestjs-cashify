@@ -1,0 +1,1 @@
+export const CASHIFY = 'CASHIFY_TOKEN';
