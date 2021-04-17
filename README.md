@@ -18,9 +18,9 @@ Import `CashifyModule` in the main module with configuration
 import { CashifyModule } from 'nestjs-cashify';
 
 const rates = {
-	GBP: 0.92,
-	EUR: 1.00,
-	USD: 1.12
+  GBP: 0.92,
+  EUR: 1.00,
+  USD: 1.12
 };
 
 @Module({
