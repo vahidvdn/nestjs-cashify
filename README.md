@@ -48,6 +48,8 @@ export class AppModule {}
 export class AppModule {}
 ```
 
+## Convert
+
 In order to convert currencies to each other in controllers or services, we have two approaches:
 
 #### Method 1: service method
