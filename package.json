@@ -1,6 +1,6 @@
 {
   "name": "nestjs-cashify",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Currency conversion module for nest",
   "author": "Vahid Najafi <vahid.vdn@gmail.com>",
   "license": "MIT",
@@ -29,9 +29,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nestjsplus/nestjs-package-starter"
+    "url": "https://github.com/vahidvdn/nestjs-cashify"
   },
-  "bugs": "https://github.com/nestjsplus/nestjs-package-starter",
+  "bugs": "https://github.com/vahidvdn/nestjs-cashify/issues",
   "peerDependencies": {
     "@nestjs/common": "^6.0.0"
   },

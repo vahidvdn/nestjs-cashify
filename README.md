@@ -91,7 +91,7 @@ this.cashifyService.convert('10 EUR to GBP');
 
 ## Support
 
-Any support is welcome. At least you can give the project a star ⭐
+Any support is welcome. You can give the project a star, if you liked it ⭐
 
 ## Contribute
 
