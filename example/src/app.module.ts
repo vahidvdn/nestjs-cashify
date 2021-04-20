@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CashifyModule } from 'nestjs-cashify';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -10,7 +11,17 @@ const rates = {
 };
 
 @Module({
-  imports: [CashifyModule.foorRoot({base: 'EUR', rates})],
+  imports: [
+    ConfigModule.forRoot(),
+    // CashifyModule.forRoot({base: 'EUR', rates}),
+    CashifyModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        base: configService.get<string>('BASE'), rates
+      }),
+      inject: [ConfigService]
+    })
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

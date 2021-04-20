@@ -1,1 +1,2 @@
 export const CASHIFY = 'CASHIFY_TOKEN';
+export const CASHIFY_OPTIONS = 'CASHIFY_OPTIONS_TOKEN';

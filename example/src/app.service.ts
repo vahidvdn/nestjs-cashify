@@ -7,8 +7,8 @@ export class AppService {
 
   constructor(
     @Inject(CASHIFY) private cashify: Cashify,
-    private cashifyService:CashifyService
-  ) {
+    private cashifyService: CashifyService
+  ) {    
     
     // method 1: service method
     const result1 = this.cashifyService.convert(10, {from: 'EUR', to: 'GBP'});
