@@ -52,7 +52,7 @@ export class AppModule {}
 
 In order to convert currencies to each other in controllers or services, we have two approaches:
 
-#### Method 1: service method
+### Method 1: service method
 
 ```TS
 import { CashifyService } from 'nestjs-cashify';
@@ -63,7 +63,7 @@ constructor(private cashifyService: CashifyService) {
 }
 ```
 
-#### Method 2: injecting instance of cashify class
+### Method 2: injecting instance of cashify class
 
 Note: Since this module is based on nodejs [cashify](https://github.com/xxczaki/cashify) library, in case there can be more methods added to the core library, you can inject the instance and use it as following:
 
