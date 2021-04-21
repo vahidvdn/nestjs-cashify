@@ -5,7 +5,7 @@ Currency conversion module for nestjs framework.
 ## Installation
 
 ```
-npm install nest-cashify
+npm install nestjs-cashify
 ```
 
 ## Usage
