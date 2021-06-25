@@ -22,7 +22,14 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "keywords": [
-    "nestjs"
+    "nestjs",
+    "nodejs",
+    "cashify",
+    "nestjs-cashify",
+    "currency-exchange",
+    "conversion",
+    "money",
+    "exchange-rates"
   ],
   "publishConfig": {
     "access": "public"
