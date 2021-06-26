@@ -1,3 +1,7 @@
+## RELEASE 1.2.0
+### Feature
+* Better typing
+
 ## RELEASE 1.1.1
 ### Feature
 * Add more docs for useClass
