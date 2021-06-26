@@ -1,3 +1,7 @@
+## RELEASE 1.1.1
+### Feature
+* Add more docs for useClass
+
 ## RELEASE 1.1.0
 ### Feature
 * Add full support for useClass and useExisting
