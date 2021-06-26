@@ -1,7 +1,9 @@
 import { DynamicModule, Module, Provider } from '@nestjs/common';
 import { Cashify } from 'cashify';
 import { CASHIFY, CashifyService, CASHIFY_OPTIONS } from './';
-import { CashifyOptionsFactory } from './interfaces/cashify-module.interface';
+import {
+  CashifyModuleAsyncOptions, CashifyModuleOptions, CashifyOptionsFactory
+} from './interfaces';
 
 @Module({})
 export class CashifyModule {
@@ -10,7 +12,7 @@ export class CashifyModule {
    * @param options a simple configuration object
    * @returns DynamicModule object
    */
-  public static forRoot(options): DynamicModule {
+  public static forRoot(options: CashifyModuleOptions): DynamicModule {
 
     /**
     * To have access to the Cashify's instance by CASHIFY token injection
@@ -37,7 +39,7 @@ export class CashifyModule {
    * this is an async configuration with useFactory passed from consumer module
    * @returns DynamicModule object
    */
-  public static forRootAsync(optionsAsync): DynamicModule {
+  public static forRootAsync(optionsAsync: CashifyModuleAsyncOptions): DynamicModule {
 
     /**
     * This is our main provider that is accessible within the service
@@ -62,20 +64,20 @@ export class CashifyModule {
     }
   }
 
-  private static createAsyncProviders(options): Provider[] {
-    if (options.useExisting || options.useFactory) {
-      return [this.createAsyncOptionsProvider(options)];
+  private static createAsyncProviders(optionsAsync: CashifyModuleAsyncOptions): Provider[] {
+    if (optionsAsync.useExisting || optionsAsync.useFactory) {
+      return [this.createAsyncOptionsProvider(optionsAsync)];
     }
     return [
-      this.createAsyncOptionsProvider(options),
+      this.createAsyncOptionsProvider(optionsAsync),
       {
-        provide: options.useClass,
-        useClass: options.useClass,
+        provide: optionsAsync.useClass,
+        useClass: optionsAsync.useClass,
       },
     ];
   }
 
-  private static createAsyncOptionsProvider(optionsAsync): Provider {
+  private static createAsyncOptionsProvider(optionsAsync: CashifyModuleAsyncOptions): Provider {
 
     /**
     * This is going to be a factory provider and import in the list of providers
