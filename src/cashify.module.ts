@@ -40,17 +40,6 @@ export class CashifyModule {
   public static forRootAsync(optionsAsync): DynamicModule {
 
     /**
-    * This is going to be a factory provider and import in the list of providers
-    * This provider make the options value available in CashifyProvider. Since it's a provider,
-    * it can be injected in CashifyProvider
-     */
-    // const CashifyOptionProvider = {
-    //   provide: CASHIFY_OPTIONS,
-    //   useFactory: optionsAsync.useFactory,
-    //   inject: optionsAsync.inject || []
-    // };
-
-    /**
     * This is our main provider that is accessible within the service
     * The same one in forRoot method (but resolve the options in an async way)
      */
@@ -64,11 +53,6 @@ export class CashifyModule {
       module: CashifyModule,
       imports: optionsAsync.imports,
       exports: [CashifyService, CashifyProvider],
-      // providers: [
-      //   CashifyProvider,
-      //   CashifyOptionProvider,
-      //   CashifyService
-      // ],
       providers: [
         ...this.createAsyncProviders(optionsAsync),
         CashifyProvider,
@@ -92,6 +76,12 @@ export class CashifyModule {
   }
 
   private static createAsyncOptionsProvider(optionsAsync): Provider {
+
+    /**
+    * This is going to be a factory provider and import in the list of providers
+    * This provider make the options value available in CashifyProvider. Since it's a provider,
+    * it can be injected in CashifyProvider
+     */
     if (optionsAsync.useFactory) {
       return {
         provide: CASHIFY_OPTIONS,
@@ -99,6 +89,13 @@ export class CashifyModule {
         inject: optionsAsync.inject || []
       };
     }
+
+    /**
+     * In consumer module, if we use useClass, the give class may have some dependencies,
+     * like ConfigService (and it's module). But they are not available in this module's context.
+     * So, we have an 'imports' object and extraProviders in forRootAsync method.
+     * Then we can dynamically add them from consumer module. See example in example folder.
+     */
     return {
       provide: CASHIFY_OPTIONS,
       useFactory: async (optionsFactory: CashifyOptionsFactory) =>
