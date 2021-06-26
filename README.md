@@ -37,7 +37,7 @@ const rates = {
 export class AppModule {}
 ```
 
-### forRootAsync with configuration
+### forRootAsync with configuration and useFactory
 
 ```TS
 @Module({
@@ -52,6 +52,43 @@ export class AppModule {}
   ]
 })
 export class AppModule {}
+```
+
+### forRootAsync with configuration and useClass
+
+```TS
+@Module({
+  imports: [
+    CashifyModule.forRootAsync({
+      useClass: CashifyConfigService,
+      import: [ConfigModule],
+      extraProviders: [ConfigService],
+    })
+  ]
+})
+export class AppModule {}
+```
+And for `CashifyConfigService` we have the following:
+
+```TS
+import { CashifyOptionsFactory } from 'nestjs-cashify';
+
+@Injectable()
+export class CashifyConfigService implements CashifyOptionsFactory {
+  constructor(private configService: ConfigService) {}
+
+  createCashifyOptions() {
+    const rates = {
+      GBP: 0.92,
+      EUR: 1.00,
+      USD: 1.12
+    };
+    return {
+      base: this.configService.get<string>('BASE'),
+      rates
+    };
+  }
+}
 ```
 
 ## Convert
