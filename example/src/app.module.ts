@@ -12,7 +12,6 @@ const rates = {
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
     // CashifyModule.forRoot({base: 'EUR', rates}),
     CashifyModule.forRootAsync({
       imports: [ConfigModule],
@@ -20,7 +19,12 @@ const rates = {
         base: configService.get<string>('BASE'), rates
       }),
       inject: [ConfigService]
-    })
+    }),
+    // CashifyModule.forRootAsync({
+    //   useClass: CashifyConfigService,
+    //   import: [ConfigModule],
+    //   extraProviders: [ConfigService],
+    // })
   ],
   controllers: [AppController],
   providers: [AppService],
