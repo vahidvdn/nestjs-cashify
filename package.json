@@ -1,6 +1,6 @@
 {
   "name": "nestjs-cashify",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Currency conversion module for nest",
   "author": "Vahid Najafi <vahid.vdn@gmail.com>",
   "license": "MIT",
