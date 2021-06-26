@@ -1,6 +1,7 @@
-import { DynamicModule, Module } from '@nestjs/common';
+import { DynamicModule, Module, Provider } from '@nestjs/common';
 import { Cashify } from 'cashify';
 import { CASHIFY, CashifyService, CASHIFY_OPTIONS } from './';
+import { CashifyOptionsFactory } from './interfaces/cashify-module.interface';
 
 @Module({})
 export class CashifyModule {
@@ -40,20 +41,20 @@ export class CashifyModule {
 
     /**
     * This is going to be a factory provider and import in the list of providers
-    * This provider make the options value available. Since it's a provider,
+    * This provider make the options value available in CashifyProvider. Since it's a provider,
     * it can be injected in CashifyProvider
      */
-    const CashifyOptionProvider = {
-      provide: CASHIFY_OPTIONS,
-      useFactory: optionsAsync.useFactory,
-      inject: optionsAsync.inject || []
-    };
+    // const CashifyOptionProvider = {
+    //   provide: CASHIFY_OPTIONS,
+    //   useFactory: optionsAsync.useFactory,
+    //   inject: optionsAsync.inject || []
+    // };
 
     /**
     * This is our main provider that is accessible within the service
     * The same one in forRoot method (but resolve the options in an async way)
      */
-    const CashifyProvider = {
+    const CashifyProvider =  {
       provide: CASHIFY,
       useFactory: (options) => new Cashify(options),
       inject: [CASHIFY_OPTIONS],
@@ -63,11 +64,46 @@ export class CashifyModule {
       module: CashifyModule,
       imports: optionsAsync.imports,
       exports: [CashifyService, CashifyProvider],
+      // providers: [
+      //   CashifyProvider,
+      //   CashifyOptionProvider,
+      //   CashifyService
+      // ],
       providers: [
+        ...this.createAsyncProviders(optionsAsync),
         CashifyProvider,
-        CashifyOptionProvider,
-        CashifyService
-      ]
+        CashifyService,
+        ...(optionsAsync.extraProviders || []),
+      ],
     }
+  }
+
+  private static createAsyncProviders(options): Provider[] {
+    if (options.useExisting || options.useFactory) {
+      return [this.createAsyncOptionsProvider(options)];
+    }
+    return [
+      this.createAsyncOptionsProvider(options),
+      {
+        provide: options.useClass,
+        useClass: options.useClass,
+      },
+    ];
+  }
+
+  private static createAsyncOptionsProvider(optionsAsync): Provider {
+    if (optionsAsync.useFactory) {
+      return {
+        provide: CASHIFY_OPTIONS,
+        useFactory: optionsAsync.useFactory,
+        inject: optionsAsync.inject || []
+      };
+    }
+    return {
+      provide: CASHIFY_OPTIONS,
+      useFactory: async (optionsFactory: CashifyOptionsFactory) =>
+        optionsFactory.createCashifyOptions(),
+      inject: [optionsAsync.useExisting || optionsAsync.useClass],
+    };
   }
 }

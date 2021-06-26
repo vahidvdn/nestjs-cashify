@@ -2,4 +2,5 @@
 export * from './cashify.const';
 export * from './cashify.module';
 export * from './cashify.service';
+export * from './interfaces';
 
