@@ -6,7 +6,7 @@ import { CASHIFY } from './';
 export class CashifyService {
   constructor(@Inject(CASHIFY) private readonly cashify: Cashify) {}
 
-  public convert(amount, options) {
+  public convert(amount, options?) {
     return this.cashify.convert(amount, options);
   }
 }
