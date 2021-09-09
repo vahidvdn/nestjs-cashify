@@ -1,3 +1,9 @@
+## RELEASE 1.3.0
+### Feature
+* Add unit tests
+### Bug Fixes
+* Add support for full parsing
+
 ## RELEASE 1.2.0
 ### Feature
 * Better typing
