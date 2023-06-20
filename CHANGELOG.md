@@ -1,3 +1,11 @@
+## RELEASE 2.0.0
+### Feature
+* Upgrade to nestjs v10
+* Upgrade to Cashify 3.x (Uses ESM)
+* Update readme for development and testing
+### Bug Fixes
+* Fix compatibility issues (jest and ESM)
+
 ## RELEASE 1.3.0
 ### Feature
 * Add unit tests
