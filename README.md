@@ -158,6 +158,14 @@ In the root of the package, run the following:
 npm run test
 ```
 
+## Versions
+
+**V2.X**
+Using NestJS 10+ (ESM also used in Cashify core)
+
+**V1.X**
+Using NestJS 6 (and commonjs)
+
 ## Support
 
 Any support is welcome. You can give the project a star, if you liked it ⭐
