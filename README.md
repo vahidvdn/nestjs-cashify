@@ -132,6 +132,32 @@ this.cashifyService.convert('€10 EUR', {to: 'GBP'});
 this.cashifyService.convert('10 EUR to GBP');
 ```
 
+## Development
+
+In the root of package:
+
+Install the dependencies
+
+```
+npm install
+```
+
+To run example folder:
+
+```
+cd example
+npm install
+npm run start:dev
+```
+
+## Run tests
+
+In the root of the package, run the following:
+
+```
+npm run test
+```
+
 ## Support
 
 Any support is welcome. You can give the project a star, if you liked it ⭐
