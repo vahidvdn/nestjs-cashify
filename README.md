@@ -161,9 +161,11 @@ npm run test
 ## Versions
 
 **V2.1+**
-Using NestJS 10+
+
+Using NestJS 6+ (e.g. version 10)
 
 **V1.X**
+
 Using NestJS 6
 
 ## Support
