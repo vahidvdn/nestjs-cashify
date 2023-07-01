@@ -1,3 +1,8 @@
+## RELEASE 2.1.0
+
+### Bug Fixes
+* Revert upgrade nestjs core to esm
+
 ## RELEASE 2.0.0
 ### Feature
 * Upgrade to nestjs v10
