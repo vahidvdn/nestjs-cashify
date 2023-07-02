@@ -16,15 +16,12 @@ Currency conversion module for nestjs framework.
 
 ## Contributing
 
-Contributing to a community project is always welcome, please see the [Contributing guide](./CONTRIBUTING.md) :)
+Contributing to a community project is always welcome.
 
 ## Support
 
 Any support is welcome. You can give the project a star, if you liked it ⭐
 
-## Contribute
-
-Feel free to contribute.
 
 ## License
 
