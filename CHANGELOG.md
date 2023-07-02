@@ -1,3 +1,8 @@
+## RELEASE 2.2.0
+
+### Feature
+* Add documentation website
+
 ## RELEASE 2.1.0
 
 ### Bug Fixes
