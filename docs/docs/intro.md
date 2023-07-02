@@ -30,3 +30,12 @@ Or alternatively with yarn:
 yarn add nestjs-cashify
 ```
 
+## Versioning
+
+### V2.1+ (or latest)
+
+To use in NestJS 6+ (e.g. version 10)
+
+### V1.X
+
+To use in NestJS 6
