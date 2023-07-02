@@ -21,3 +21,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.githubBtn {
+  margin-left: 10px;
+  border-width: 3;
+  border-color: white;
+}
