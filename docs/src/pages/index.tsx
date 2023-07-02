@@ -18,7 +18,12 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            Read the docs
+          </Link>
+          <Link
+            className={`button margin button--primary button--lg ${styles.githubBtn}`}
+            to="https://github.com/vahidvdn/nestjs-cashify">
+            ⭐️ Star on Github
           </Link>
         </div>
       </div>
