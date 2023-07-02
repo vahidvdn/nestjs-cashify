@@ -2,6 +2,9 @@
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Docs Intro
 
 Let's discover **nestjs-cashify in less than 5 minutes**.
@@ -20,15 +23,23 @@ nestjs-cashify is a currency conversion module for nestjs framework.
 
 Install nestjs-cashify via npm or yarn:
 
-```bash
-npm install nestjs-cashify
-```
 
-Or alternatively with yarn:
+<Tabs>
+  <TabItem value="apple" label="npm" default>
 
-```bash
-yarn add nestjs-cashify
-```
+  ```bash
+  npm install nestjs-cashify
+  ```
+
+  </TabItem>
+  <TabItem value="orange" label="yarn">
+
+  ```bash
+  yarn add nestjs-cashify
+  ```
+
+  </TabItem>
+</Tabs>
 
 ## Versioning
 
