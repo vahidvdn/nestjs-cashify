@@ -36,7 +36,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`Documentation of ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Currency conversion module for nestjs">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
