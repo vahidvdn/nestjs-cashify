@@ -71,7 +71,7 @@ const config = {
             label: 'Docs',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/vahidvdn/nestjs-cashify',
             label: 'GitHub',
             position: 'right',
           },
