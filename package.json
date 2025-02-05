@@ -42,6 +42,8 @@
   },
   "bugs": "https://github.com/vahidvdn/nestjs-cashify/issues",
   "dependencies": {
+    "@nestjs/axios": "^4.0.0",
+    "axios": "^1.7.9",
     "cashify": "^2.5.0"
   },
   "devDependencies": {
