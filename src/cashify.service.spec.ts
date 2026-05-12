@@ -52,4 +52,14 @@ describe('CashifyService', () => {
     let converted = cashifyService.convert('€10 EUR to GBP');
     expect(converted).toEqual(9.2);
   })
+
+  it('should convert currency with symbol', () => {
+    let converted = cashifyService.convertWithSymbol(
+      10,
+      'EUR',
+      'GBP'
+    );
+
+    expect(converted).toEqual('£9.20');
+  })
 })
